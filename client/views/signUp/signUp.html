@@ -1,0 +1,89 @@
+<template name='entrySignUp'>
+  <div class="container">
+    <div class="row">
+      {{#if logo}}
+      <div class="entry-logo">
+        <a href="/"><img src="{{logo}}" alt="logo"></a>
+      </div>
+      {{/if}}
+      <div class="entry col-md-4 col-md-offset-4">
+        <h3>{{i18n "createAccount"}}</h3>
+        {{#if otherLoginServices}}
+        <p class="entry-signin-cta">{{i18n "ifYouAlreadyHaveAnAccount"}} <a href="{{pathFor 'entrySignIn'}}">{{i18n "signin"}}</a>.</p>
+        <div class="entry-social">
+          {{#each loginServices}}
+          {{> entrySocial}}
+          {{/each}}
+          {{#if passwordLoginService}}
+          <div class="email-option">
+            <strong class="line-thru">{{i18n "OR"}}</strong>
+            <a data-toggle="collapse" href="#signUp">
+              {{i18n "signUpWithYourEmailAddress"}}
+            </a>
+          </div>
+          {{/if}}
+        </div>
+        {{else}}
+        <p class="entry-signin-cta">{{i18n "ifYouAlreadyHaveAnAccount"}} <a href="{{pathFor 'entrySignIn'}}">{{i18n "signin"}}</a>.</p>
+        {{/if}}
+        {{> alerts}}
+        {{#if passwordLoginService}}
+        <form class="entry-form {{signupClass}}" id='signUp'>
+          {{#if showUsername}}
+          <div class="form-group">
+            <label>{{i18n "username"}}</label>
+            <input autofocus name="username" type="string" class="form-control" value=''>
+          </div>
+          {{/if}}
+
+          {{#if showEmail}}
+          <div class="form-group">
+            <label>{{i18n "emailAddress"}}</label>
+            {{#if showUsername}}
+            <input type="email" class="form-control" value='{{emailAddress}}'>
+            {{else}}
+            <input autofocus type="email" class="form-control" value='{{emailAddress}}'>
+            {{/if}}
+          </div>
+          {{/if}}
+
+          <div class="form-group">
+            <label>{{i18n "password"}}</label>
+            <input type="password" class="form-control" name="password1" value=''>
+          </div>
+
+          {{#if showPasswordConfirmation}}
+          <div class="form-group">
+            <label>{{i18n "confirmPassword"}}</label>
+            <input type="password" class="form-control" name="password2" value=''>
+          </div>
+          {{/if}}
+
+          {{#if showSignupCode}}
+          <div class="form-group">
+            <label>{{i18n "signupCode"}}</label>
+            <input name="signupCode" type="string" class="form-control" value=''>
+          </div>
+          {{/if}}
+
+          {{> entryExtraSignUpFields}}
+          <button type="submit" class="submit btn btn-block btn-default">{{i18n "signUp"}}</button>
+        </form>
+        {{/if}}
+        {{#if both}}
+        <p class="entry-agreement">{{i18n "clickAgree"}}
+          <a href="{{privacyUrl}}">{{i18n "privacyPolicy"}}</a> {{i18n "and"}}
+          <a href="{{termsUrl}}">{{i18n "terms"}}</a>.
+        </p>
+        {{else}}
+        {{#unless neither}}
+        <p class="entry-agreement">{{i18n "clickAgree"}}
+          {{#if privacyUrl}}<a href="{{privacyUrl}}">{{i18n "privacyPolicy"}}</a>.{{/if}}
+          {{#if termsUrl}}<a href="{{termsUrl}}">{{i18n "terms"}}</a>.{{/if}}
+        </p>
+        {{/unless}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>

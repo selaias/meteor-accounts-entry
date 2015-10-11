@@ -1,0 +1,9 @@
+<template name='entrySocial'>
+  <button class="btn" id="entry-{{this}}" name="{{this}}">
+    {{#if unconfigured}}
+    <i class="fa fa-{{icon}}"></i> {{i18n "configure"}} {{capitalize this}}
+    {{else}}
+      <i class="fa fa-{{icon}}"></i> {{buttonText}} {{i18n "with"}} {{capitalize this}}
+    {{/if}}
+  </button>
+</template>
