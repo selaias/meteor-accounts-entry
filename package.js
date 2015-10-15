@@ -1,8 +1,8 @@
 Package.describe({
   summary: "Make signin and signout their own pages with routes (in javascript)",
-  version: '0.6.0',
+  version: '0.8.0',
   name: "selaias:accounts-entry",
-  githubUrl: 'https://github.com/selaias/accounts-entry',
+  githubUrl: 'https://github.com/selaias/meteor-accounts-entry',
 });
 
 Package.onUse(function(api) {
@@ -20,6 +20,7 @@ Package.onUse(function(api) {
     'templating',
     'handlebars',
     'session',
+    'check',
     'less',
     'sha@1.0.3'], 'client');
 
@@ -51,6 +52,7 @@ Package.onUse(function(api) {
   // SERVER
   api.use([
     'deps',
+    'check',
     'service-configuration',
     'accounts-base',
     'underscore'], 'server');
