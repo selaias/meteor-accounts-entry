@@ -93,6 +93,16 @@ Router.route('entryResetPassword', {
     this.next();
   }
 });
+Router.route('entryEnrollAccount', {
+  path: 'enroll-account/:resetToken',
+  name: 'entryEnrollAccount',
+  template: 'entryEnrollAccount',
+  onBeforeAction: function() {
+    Alerts.clear();
+    Session.set('resetToken', this.params.resetToken);
+    this.next();
+  }
+});
 
 Router.route('entryEmailVerificationPending', {
   path: '/verification-pending',

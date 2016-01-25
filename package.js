@@ -40,6 +40,8 @@ Package.onUse(function(api) {
     'client/views/forgotPassword/forgotPassword.js',
     'client/views/resetPassword/resetPassword.html',
     'client/views/resetPassword/resetPassword.js',
+    'client/views/enrollAccount/enrollAccount.html',
+    'client/views/enrollAccount/enrollAccount.js',
     'client/views/verifyEmail/emailVerificationPending.html',
     'client/views/verifyEmail/emailVerificationPending.js',
     'client/views/social/social.html',

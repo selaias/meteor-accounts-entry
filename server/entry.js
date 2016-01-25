@@ -3,6 +3,10 @@ Meteor.startup(function() {
     return Meteor.absoluteUrl('reset-password/' + token);
   };
 
+  Accounts.urls.enrollAccount = function(token) {
+    return Meteor.absoluteUrl('enroll-account/' + token);
+  };
+
   AccountsEntry = {
     settings: {},
     config: function(appConfig) {
